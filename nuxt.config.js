@@ -31,7 +31,7 @@ export default {
   components: {
     dirs: [
       '~/components',
-      '~/components/ui'
+      '~/components/UI'
     ]
   },
 
