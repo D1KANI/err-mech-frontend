@@ -1,5 +1,5 @@
 <template>
-  <Tutorial />
+  <HeaderBlock />
 </template>
 
 <script>
