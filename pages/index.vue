@@ -1,6 +1,7 @@
 <template>
   <main class="main">
     <SliderBlock />
+    <ProductList />
   </main>
 </template>
 
