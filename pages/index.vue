@@ -1,5 +1,7 @@
 <template>
-  <HeaderBlock />
+  <main class="main">
+    <SliderBlock />
+  </main>
 </template>
 
 <script>
