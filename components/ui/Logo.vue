@@ -1,8 +1,8 @@
 <template>
-  <a href="/" class="header__logo cybr-btn">
+  <nuxt-link :to="{name: 'index'}" class="cybr-btn">
     err.mech<span aria-hidden></span>
     <span aria-hidden class="cybr-btn__glitch">err.mech</span>
-  </a>
+  </nuxt-link>
 </template>
 <script>
 export default {

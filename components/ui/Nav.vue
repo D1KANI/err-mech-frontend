@@ -1,5 +1,6 @@
 <template>
   <nav class="nav">
+    <nuxt-link to="/test">Test page</nuxt-link>
     <a href="#" class="nav__link">Клавиатуры</a>
     <a href="#" class="nav__link">Переключатели</a>
     <a href="#" class="nav__link">Кейкапы</a>
@@ -10,7 +11,7 @@
 </template>
 <script>
 export default {
-  name: 'HeaderNav'
+  name: 'Nav'
 }
 </script>
 <style lang="scss" scoped>

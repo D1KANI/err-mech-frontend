@@ -2,6 +2,7 @@
   <main class="main">
     <SliderBlock />
     <ProductList />
+    <GradientBlock />
   </main>
 </template>
 

@@ -3,14 +3,7 @@
     <div class="container">
       <div class="footer__links">
         <Logo class="footer__logo" />
-        <nav class="nav">
-          <a href="#" class="nav__link">Клавиатуры</a>
-          <a href="#" class="nav__link">Переключатели</a>
-          <a href="#" class="nav__link">Кейкапы</a>
-          <a href="#" class="nav__link">Аксессуары</a>
-          <a href="#" class="nav__link">Новости</a>
-          <a href="/categories.html" class="nav__link">Категории</a>
-        </nav>
+        <Nav />
       </div>
       <div class="footer__flex">
         <div class="footer__box">

@@ -11,8 +11,8 @@
           <span />
           <span />
         </div>
-        <Logo />
-        <HeaderNav />
+        <Logo class="header__logo" />
+        <Nav />
         <div class="header__buttons">
           <a href="#" class="search-btn">
             <IconSearch />
