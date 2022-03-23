@@ -30,11 +30,11 @@
             </div>
             <div class="social">
               <a href="https://vk.com/errmech" target="_blank" class="social__link">
-                <img src="/image/SVG/vk.svg" alt="" class="social__image">
+                <IconVK class="social__image" />
                 <p>ВКонтакте</p>
               </a>
               <a href="" class="social__link">
-                <img src="/image/SVG/instagram.svg" alt="" class="social__image">
+                <IconInstagram class="social__image" />
                 <p>Инстаграм</p>
               </a>
             </div>

@@ -1,20 +1,22 @@
 <template>
   <section class="slider">
-    <VueSlickCarousel v-bind="settings">
-      <div
-        v-for="(slide, index) in slides"
-        :key="index"
-        class="slider-item"
-        :style="{backgroundImage: `url(${slide.image})`}"
-      >
-        <p class="slider-item__title">
-          SA Dualshot Keycap Set
-        </p>
-        <p class="slider-item__subtitle">
-          Лимитированое издание даблшот кейкапов SA профиля
-        </p>
-      </div>
-    </VueSlickCarousel>
+    <client-only>
+      <VueSlickCarousel v-bind="settings">
+        <div
+          v-for="(slide, index) in slides"
+          :key="index"
+          class="slider-item"
+          :style="{backgroundImage: `url(${slide.image})`}"
+        >
+          <p class="slider-item__title">
+            SA Dualshot Keycap Set
+          </p>
+          <p class="slider-item__subtitle">
+            Лимитированое издание даблшот кейкапов SA профиля
+          </p>
+        </div>
+      </VueSlickCarousel>
+    </client-only>
   </section>
 </template>
 <script>
