@@ -6,6 +6,16 @@
 
 <script>
 export default {
-  name: 'IndexPage'
+  name: 'IndexPage',
+  data () {
+    return {
+      title: 'Главная страница'
+    }
+  },
+  head () {
+    return {
+      title: `ERR-MECH | ${this.title}`
+    }
+  }
 }
 </script>
