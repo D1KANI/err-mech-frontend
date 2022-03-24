@@ -3,6 +3,7 @@
     <SliderBlock />
     <ProductList />
     <GradientBlock />
+    <NewsIndexBlock />
   </main>
 </template>
 

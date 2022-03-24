@@ -3,7 +3,9 @@
     <div class="container">
       <div class="gradient__flex">
         <div class="gradient-head">
-          <p>Клавиатуры с RGB подсветкой</p>
+          <p>
+            Клавиатуры с RGB подсветкой
+          </p>
           <nuxt-link to="/" class="gradient-head__link">
             Подробнее
           </nuxt-link>

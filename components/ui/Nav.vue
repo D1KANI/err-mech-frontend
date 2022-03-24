@@ -1,6 +1,6 @@
 <template>
   <nav class="nav">
-    <nuxt-link to="/test">Test page</nuxt-link>
+    <nuxt-link to="/test" class="nav__link">Test page</nuxt-link>
     <a href="#" class="nav__link">Клавиатуры</a>
     <a href="#" class="nav__link">Переключатели</a>
     <a href="#" class="nav__link">Кейкапы</a>
