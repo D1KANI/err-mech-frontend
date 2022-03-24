@@ -1,12 +1,16 @@
 <template>
   <nav class="nav">
-    <nuxt-link to="/test" class="nav__link">Test page</nuxt-link>
+    <nuxt-link to="/test" class="nav__link">
+      Test page
+    </nuxt-link>
     <a href="#" class="nav__link">Клавиатуры</a>
     <a href="#" class="nav__link">Переключатели</a>
     <a href="#" class="nav__link">Кейкапы</a>
     <a href="#" class="nav__link">Аксессуары</a>
     <a href="#" class="nav__link">Новости</a>
-    <a href="/categories.html" class="nav__link">Категории</a>
+    <nuxt-link :to="{name: 'categories'}" class="nav__link">
+      Категории
+    </nuxt-link>
   </nav>
 </template>
 <script>
