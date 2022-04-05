@@ -3,12 +3,22 @@
     <nuxt-link to="/test" class="nav__link">
       Test page
     </nuxt-link>
-    <a href="#" class="nav__link">Клавиатуры</a>
-    <a href="#" class="nav__link">Переключатели</a>
-    <a href="#" class="nav__link">Кейкапы</a>
-    <a href="#" class="nav__link">Аксессуары</a>
-    <a href="#" class="nav__link">Новости</a>
-    <nuxt-link :to="{name: 'categories'}" class="nav__link">
+    <nuxt-link to="/categories/keyboard" class="nav__link">
+      Клавиатуры
+    </nuxt-link>
+    <nuxt-link to="/categories/switches" class="nav__link">
+      Переключатели
+    </nuxt-link>
+    <nuxt-link to="/categories/keycaps" class="nav__link">
+      Кейкапы
+    </nuxt-link>
+    <nuxt-link to="/categories/accessories" class="nav__link">
+      Аксессуары
+    </nuxt-link>
+    <nuxt-link to="/news" class="nav__link">
+      Новости
+    </nuxt-link>
+    <nuxt-link to="/categories" class="nav__link">
       Категории
     </nuxt-link>
   </nav>

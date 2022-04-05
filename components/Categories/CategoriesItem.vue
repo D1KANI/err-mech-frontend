@@ -1,5 +1,5 @@
 <template>
-  <nuxt-link :to="category.link" class="categories-item">
+  <nuxt-link :to="`/categories/${category.link}`" class="categories-item">
     <div class="categories-item__image-wrapper">
       <img :src="category.image" alt="" class="categories-item__image">
     </div>

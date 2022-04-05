@@ -1,16 +1,45 @@
 <template>
   <section class="products">
     <div class="container">
-      <h1>Популярные товары</h1>
+      <h1>{{ title }}</h1>
       <div class="products__flex">
-        <ProductItem />
+        <ProductItem
+          v-for="product in products"
+          :key="product.id"
+          :product-id="product.id"
+          :name="product.name"
+          :company="product.company"
+          :switches="product.switches"
+          :price="product.price"
+          :image="product.image"
+          :type="product.type"
+        />
       </div>
     </div>
   </section>
 </template>
 <script>
 export default {
-  name: 'ProductsList'
+  name: 'ProductsList',
+  props: {
+    products: {
+      type: Array,
+      required: true
+    }
+  },
+  computed: {
+    title () {
+      const type = this.$route.params.name
+      if (type === 'keyboard') {
+        return 'Клавиатуры'
+      } else if (type === 'accessories') {
+        return 'Аксессуары'
+      } else if (type === 'keycaps') {
+        return 'Кейкапы'
+      }
+      return 'Переключатели'
+    }
+  }
 }
 </script>
 <style lang="scss" scoped>

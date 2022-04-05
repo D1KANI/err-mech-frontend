@@ -1,49 +1,72 @@
 <template>
   <div class="product-small">
     <div class="product-small__image-wrapper">
-      <img :src="require('@/assets/images/product/1.png')" alt="" class="product-small__image">
-      <a href="#" class="product-small__link">Подробнее</a>
+      <img :src="image" alt="" class="product-small__image">
+      <nuxt-link :to="`/products/${productId}`" class="product-small__link">
+        Подробнее
+      </nuxt-link>
     </div>
-    <a href="#" class="product-small__name">
-      <span class="company">Ducky </span>
-      <span class="name">Shine 7 Blackout</span>
-    </a>
+    <nuxt-link :to="`/products/${productId}`" class="product-small__name">
+      <span class="company">{{ company }} </span>
+      <span class="name">{{ name }}</span>
+    </nuxt-link>
     <div class="product-small__switches">
       <div class="product-small__switches-head">
         Переключатели:
       </div>
       <ul class="product-small__switches-body">
-        <li class="swBrown">
-          Brown
-        </li>
-        <li class="swBlue">
-          Blue
-        </li>
-        <li class="swRed">
-          Red
-        </li>
-        <li class="swClear">
-          Clear
-        </li>
-        <li class="swSilentRed">
-          Silent Red
-        </li>
-        <li class="swSpeedSilver">
-          Speed Silver
-        </li>
-        <li class="swBlack">
-          Black
+        <li
+          v-for="(item, index) in switches"
+          :key="index"
+          :class="`sw${item.replace(/\s/g, '')}`"
+        >
+          {{ item }}
         </li>
       </ul>
     </div>
     <div class="product-small__price">
-      Цена: от <span>3 000</span> <span>₽</span>
+      Цена: от <span>{{ priceAsString }}</span> <span>₽</span>
     </div>
   </div>
 </template>
 <script>
 export default {
-  name: 'ProductItem'
+  name: 'ProductItem',
+  props: {
+    productId: {
+      type: Number,
+      required: true
+    },
+    type: {
+      type: String,
+      required: true
+    },
+    name: {
+      type: String,
+      required: true
+    },
+    company: {
+      type: String,
+      required: true
+    },
+    price: {
+      type: Number,
+      required: true
+    },
+    switches: {
+      type: Array,
+      default () { return [''] }
+    },
+    image: {
+      type: String,
+      default: require('@/assets/images/product/default.png')
+    }
+  },
+  computed: {
+    priceAsString () {
+      return this.price.toLocaleString('ru')
+    }
+  }
 }
 </script>
 <style lang="scss" scoped>

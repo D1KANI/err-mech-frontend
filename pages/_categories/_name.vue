@@ -1,15 +1,11 @@
 <template>
   <main class="main">
-    <SliderBlock />
     <ProductList :products="products" />
-    <GradientBlock />
-    <NewsIndexBlock />
   </main>
 </template>
-
 <script>
 export default {
-  name: 'IndexPage',
+  name: 'ProductsPage',
   data () {
     return {
       products: [
@@ -18,7 +14,7 @@ export default {
           type: 'Keyboard',
           name: 'Shine 7 Blackout',
           company: 'Ducky',
-          switches: ['Brown', 'Blue', 'Red', 'Clear', 'Silent Red', 'Speed Silver', 'Black'],
+          switches: ['Black'],
           price: 9999
         },
         {
@@ -31,11 +27,6 @@ export default {
           image: require('@/assets/images/product/1.png')
         }
       ]
-    }
-  },
-  head () {
-    return {
-      title: 'ERR-MECH | Главная страница'
     }
   }
 }

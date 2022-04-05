@@ -15,22 +15,22 @@ export default {
         {
           title: 'Клавиатуры',
           image: require('@/assets/images/categories/1.png'),
-          link: '/'
+          link: 'keyboard'
         },
         {
           title: 'Переключатели',
           image: require('@/assets/images/categories/2.png'),
-          link: '/'
+          link: 'switches'
         },
         {
           title: 'Кейкапы',
           image: require('@/assets/images/categories/3.png'),
-          link: '/'
+          link: 'keycaps'
         },
         {
-          title: 'Кейкапы',
+          title: 'Аксессуары',
           image: require('@/assets/images/categories/4.png'),
-          link: '/'
+          link: 'accessories'
         }
       ]
     }
