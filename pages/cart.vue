@@ -112,7 +112,10 @@
                   Подарочный сертификат
                 </p>
                 <input type="text" class="cart-promocode__input input" placeholder="Код сертификата" required>
-                <button type="submit" class="btn cart-promocode__btn">
+                <button
+                  type="submit"
+                  class="btn cart-promocode__btn"
+                >
                   Проверить промокод
                 </button>
               </form>
