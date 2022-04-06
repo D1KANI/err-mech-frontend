@@ -34,7 +34,7 @@ export default {
         },
         {
           title: 'Виды нанесения символов на клавиши',
-          descShort: 'Doubleshot, Dye Sublimation, Laser Engraving и Pad Printing. Если эти слова вам не знакомы, то давайте разберемся, в чем мем. Doubleshot, Dye Sublimation, Laser Engraving и Pad Printing',
+          descShort: 'Doubleshot, Dye Sublimation, Laser Engraving и Pad Printing. Если эти слова вам не знакомы, то давайте разберемся, в чем мем.',
           descFull: 'Если эти слова вам не знакомы, то давайте разберемся, в чем мем. Doubleshot, Dye Sublimation, Laser Engraving и Pad Printing. Если эти слова вам не знакомы, то давайте разберемся, в чем мем. Если эти слова вам не знакомы, то давайте разберемся, в чем мем. Doubleshot, Dye Sublimation, Laser Engraving и Pad Printing. Если эти слова вам не знакомы, то давайте разберемся, в чем мем',
           date: '1 сентября',
           slug: 'article6'

@@ -2,7 +2,6 @@
   <section class="article">
     <div class="container">
       <h2>{{ article.title }}</h2>
-      {{ slug }}
       <div class="article__date">
         {{ article.date }}
       </div>
