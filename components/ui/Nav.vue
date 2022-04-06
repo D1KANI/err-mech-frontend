@@ -1,7 +1,7 @@
 <template>
   <nav class="nav">
-    <nuxt-link to="/news" class="nav__link">
-      Новости
+    <nuxt-link to="/articles" class="nav__link">
+      Статьи
     </nuxt-link>
     <nuxt-link to="/categories" class="nav__link">
       Категории

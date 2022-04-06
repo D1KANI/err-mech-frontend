@@ -3,9 +3,11 @@
     <p class="new__date">
       {{ item.date }}
     </p>
-    <a href="#" class="new__head">{{ item.title }}</a>
+    <nuxt-link :to="`/articles/${item.slug}`" class="new__head">
+      {{ item.title }}
+    </nuxt-link>
     <p class="new__desc">
-      {{ item.content }}
+      {{ item.descShort }}
     </p>
   </div>
 </template>
@@ -17,9 +19,10 @@ export default {
       type: Object,
       default () {
         return {
-          date: '1 сенятбря',
+          date: '1 сентября',
           title: 'Заголовок',
-          content: 'Текст'
+          descShort: 'Текст',
+          slug: 'article'
         }
       }
     }
