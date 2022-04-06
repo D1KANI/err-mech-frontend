@@ -2,7 +2,6 @@
   <section class="profile">
     <div class="container">
       <h1>Профиль покупателя</h1>
-      <h2>Покупатель Покупательский</h2>
       <div class="profile-box">
         <div class="profile-data">
           <h3>Ваши данные</h3>
@@ -41,6 +40,9 @@
                 :placeholder="userData.address || 'Ваш адрес доставки'"
                 resize=""
               />
+            </div>
+            <div class="btn profile__btn">
+              Сохранить новые данные
             </div>
           </div>
         </div>
@@ -117,12 +119,13 @@ export default {
   padding: 50px 0 70px;
   h1 {
     text-align: left;
-  }
-  h2 {
-    margin: 10px 0 30px;
+    margin-bottom: 30px;
   }
   h3 {
     margin-bottom: 20px;
+  }
+  &__btn {
+    margin-top: 30px;
   }
   &-box {
     border-radius: 5px;

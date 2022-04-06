@@ -14,7 +14,7 @@ export default {
   props: {
     orders: {
       type: Array,
-      reqiored: true
+      required: true
     }
   }
 }

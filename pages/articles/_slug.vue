@@ -29,7 +29,7 @@ export default {
   },
   head () {
     return {
-      title: 'ERR-MECH | Новость'
+      title: `ERR-MECH | ${this.article.title || 'Статья'}`
     }
   },
   computed: {

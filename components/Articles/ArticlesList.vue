@@ -70,6 +70,11 @@ export default {
         }
       ]
     }
+  },
+  head () {
+    return {
+      title: 'ERR-MECH | Статьи'
+    }
   }
 }
 </script>
