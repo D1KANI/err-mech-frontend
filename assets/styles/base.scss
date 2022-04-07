@@ -156,6 +156,7 @@ h3 {
   position: relative;
   overflow: hidden;
   user-select: none;
+  transition: background-color 175ms ease-in-out;
   &:before {
     content: "";
     display: block;
@@ -178,6 +179,10 @@ h3 {
     &::before {
       display: none;
     }
+  }
+  &._disabled {
+    cursor: default;
+    background-color: $grey;
   }
 }
 

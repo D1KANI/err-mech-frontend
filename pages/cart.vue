@@ -15,7 +15,7 @@
                   <span>{{ totalPrice }}</span> ₽
                 </p>
               </div>
-              <form class="cart-result-promocode cart-promocode">
+              <form v-if="cart.length > 0" class="cart-result-promocode cart-promocode">
                 <p class="cart-promocode__label">
                   Подарочный сертификат
                 </p>
@@ -33,13 +33,17 @@
                   Проверить промокод
                 </button>
               </form>
-              <div class="btn cart-result__btn _no-anim">
+              <div
+                class="btn cart-result__btn _no-anim"
+                :class="{'_disabled' : cart.length === 0}"
+                :disabled="cart.length === 0"
+              >
                 Перейти к оформлению
               </div>
             </div>
           </div>
         </div>
-        <form class="_mobile cart-promocode">
+        <form v-if="cart.length > 0" class="_mobile cart-promocode">
           <p class="cart-promocode__label">
             Подарочный сертификат
           </p>

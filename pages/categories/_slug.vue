@@ -1,16 +1,32 @@
 <template>
-  <section class="categories">
-    <div class="container">
-      <h1>Категории</h1>
-      <CategoriesList :categories="categories" />
-    </div>
-  </section>
+  <main class="main">
+    <ProductList :products="products" :title="title" />
+  </main>
 </template>
 <script>
 export default {
-  name: 'CategoriesBlock',
+  name: 'ProductsPage',
   data () {
     return {
+      products: [
+        {
+          id: 1,
+          type: 'Keyboard',
+          name: 'Shine 7 Blackout',
+          company: 'Ducky',
+          switches: ['Black'],
+          price: 9999
+        },
+        {
+          id: 2,
+          type: 'Keyboard',
+          name: 'Shine 7 Blackout',
+          company: 'Ducky',
+          switches: ['Brown', 'Blue', 'Red', 'Clear', 'Silent Red', 'Speed Silver'],
+          price: 228089346.99,
+          image: require('@/assets/images/product/1.png')
+        }
+      ],
       categories: [
         {
           id: 1,
@@ -38,15 +54,13 @@ export default {
         }
       ]
     }
+  },
+  computed: {
+    title () {
+      return this.categories.find((item) => {
+        return item.slug === this.$route.params.slug
+      }).name
+    }
   }
 }
 </script>
-<style lang="scss" scoped>
-.categories {
-  margin-top: 50px;
-  margin-bottom: 70px;
-  h1 {
-    text-align: left;
-  }
-}
-</style>

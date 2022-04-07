@@ -208,7 +208,7 @@ export default {
     addToCart () {
       const product = { ...this.product }
       product.selectedSwitch = this.selectedSwitch
-      this.$store.commit('cart/addToCart', { product, quantity: 1 })
+      this.$store.commit('cart/addToCartOrIncrement', { product, quantity: 1 })
     }
   }
 }

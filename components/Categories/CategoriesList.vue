@@ -1,8 +1,8 @@
 <template>
   <div class="categories__flex">
     <CategoriesItem
-      v-for="(category, index) in categories"
-      :key="index"
+      v-for="category in categories"
+      :key="category.id"
       :category="category"
     />
   </div>

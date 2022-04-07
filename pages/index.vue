@@ -1,7 +1,7 @@
 <template>
   <main class="main">
     <SliderBlock />
-    <ProductList :products="products" />
+    <ProductList :products="products" :title="'Популярные товары'" />
     <GradientBlock />
     <NewsIndexBlock />
   </main>

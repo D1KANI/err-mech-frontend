@@ -1,9 +1,9 @@
 <template>
-  <nuxt-link :to="`/categories/${category.link}`" class="categories-item">
+  <nuxt-link :to="`/categories/${category.slug}`" class="categories-item">
     <div class="categories-item__image-wrapper">
       <img :src="category.image" alt="" class="categories-item__image">
     </div>
-    <p>{{ category.title }}</p>
+    <p>{{ category.name }}</p>
   </nuxt-link>
 </template>
 <script>
@@ -12,13 +12,7 @@ export default {
   props: {
     category: {
       type: Object,
-      default () {
-        return {
-          title: 'Название категории',
-          image: require('@/assets/images/categories/1.png'),
-          link: '/'
-        }
-      }
+      required: true
     }
   }
 }

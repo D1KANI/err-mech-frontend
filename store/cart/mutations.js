@@ -1,5 +1,5 @@
 export default {
-  addToCart (state, payload) {
+  addToCartOrIncrement (state, payload) {
     const currentItem = state.cart.find((item) => {
       return item.product.id === payload.product.id &&
              item.product.selectedSwitch === payload.product.selectedSwitch
@@ -19,13 +19,10 @@ export default {
   decrementQuantity (state, payload) {
     const index = state.cart.indexOf(payload)
     if (index > -1) {
-      state.cart.forEach((item) => {
-        if (item.product.id === payload.product.id && item.quantity > 1) {
-          item.quantity--
-          return
-        }
-        this.commit('cart/removeFromCart', payload)
-      })
+      const itemInCart = state.cart[index]
+      itemInCart.quantity > 1 ? itemInCart.quantity-- : this.commit('cart/removeFromCart', payload)
+    } else {
+      state.cart.push(payload)
     }
   }
 }

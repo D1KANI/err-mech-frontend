@@ -61,7 +61,7 @@ export default {
   },
   methods: {
     ...mapMutations({
-      increment: 'cart/addToCart',
+      increment: 'cart/addToCartOrIncrement',
       decrement: 'cart/decrementQuantity',
       removeFromCart: 'cart/removeFromCart'
     })
