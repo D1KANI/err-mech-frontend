@@ -4,99 +4,7 @@
       <h1>Корзина</h1>
       <div class="cart-wrapper">
         <div class="cart__flex">
-          <div class="cart-box">
-            <div class="cart-item">
-              <div class="cart-item-image">
-                <img src="/image/item/item.png" alt="" class="cart-item-image__img">
-              </div>
-              <div class="cart-item__inner">
-                <p class="cart-item__category">
-                  Клавиатура
-                </p>
-                <p class="cart-item__name">
-                  Varmilo VA87M Vintage Days
-                </p>
-                <div class="cart-item-count">
-                  <div class="count">
-                    <div class="count-minus count__btn">
-                      -
-                    </div>
-                    <input
-                      type="text"
-                      class="count-value"
-                      value="1"
-                      readonly
-                    >
-                    <div class="count-plus count__btn">
-                      +
-                    </div>
-                  </div>
-                </div>
-                <div class="cart-item-price">
-                  <div class="cart-item-price__head">
-                    Цена:
-                  </div>
-                  <div class="cart-item-price__content">
-                    <span>13 490</span> ₽
-                  </div>
-                </div>
-              </div>
-              <div class="cart-item__delete">
-                Удалить
-              </div>
-            </div>
-            <div class="cart-item">
-              <div class="cart-item-image">
-                <img src="/image/item/item.png" alt="" class="cart-item-image__img">
-              </div>
-              <div class="cart-item__inner">
-                <p class="cart-item__category">
-                  Клавиатура
-                </p>
-                <p class="cart-item__name">
-                  Varmilo VA87M Vintage Days
-                </p>
-                <div class="cart-item-count">
-                  <div class="count">
-                    <div class="count-minus count__btn">
-                      -
-                    </div>
-                    <input
-                      type="text"
-                      class="count-value"
-                      value="1"
-                      readonly
-                    >
-                    <div class="count-plus count__btn">
-                      +
-                    </div>
-                  </div>
-                </div>
-                <div class="cart-item-price">
-                  <div class="cart-item-price__head">
-                    Цена:
-                  </div>
-                  <div class="cart-item-price__content">
-                    <span>13 490</span> ₽
-                  </div>
-                </div>
-              </div>
-              <div class="cart-item__delete">
-                Удалить
-              </div>
-            </div>
-            <div class="cart-default">
-              <div class="cart-default-image">
-                <img src="/image/SVG/cart-default.svg" alt="" class="cart-default-image__img">
-              </div>
-              <p class="cart-default__title">
-                Ваша корзина пуста
-              </p>
-              <a href="/" class="cart-default__link btn">
-                Перейти к покупкам
-              </a>
-            </div>
-          </div>
+          <CartProductList :cart="cart" />
           <div class="cart-result">
             <div class="cart-result__box">
               <div class="cart-result-head">
@@ -104,14 +12,20 @@
                   Итого:
                 </p>
                 <p class="cart-result-head__body">
-                  <span>13 490</span> ₽
+                  <span>{{ totalPrice }}</span> ₽
                 </p>
               </div>
               <form class="cart-result-promocode cart-promocode">
                 <p class="cart-promocode__label">
                   Подарочный сертификат
                 </p>
-                <input type="text" class="cart-promocode__input input" placeholder="Код сертификата" required>
+                <input
+                  v-model="promocode"
+                  type="text"
+                  class="cart-promocode__input input"
+                  placeholder="Код сертификата"
+                  required
+                >
                 <button
                   type="submit"
                   class="btn cart-promocode__btn"
@@ -119,17 +33,18 @@
                   Проверить промокод
                 </button>
               </form>
-              <div class="btn cart-result__btn">
+              <div class="btn cart-result__btn _no-anim">
                 Перейти к оформлению
               </div>
             </div>
           </div>
         </div>
-        <div class="_mobile cart-promocode">
+        <form class="_mobile cart-promocode">
           <p class="cart-promocode__label">
             Подарочный сертификат
           </p>
           <input
+            v-model="promocode"
             type="text"
             class="cart-promocode__input input"
             placeholder="Код сертификата"
@@ -138,14 +53,38 @@
           <button type="submit" class="btn cart-promocode__btn">
             Проверить промокод
           </button>
-        </div>
+        </form>
       </div>
     </div>
   </section>
 </template>
 <script>
+import { mapGetters } from 'vuex'
+
 export default {
-  name: 'CartPage'
+  name: 'CartPage',
+  data () {
+    return {
+      promocode: ''
+    }
+  },
+  head () {
+    return {
+      title: 'ERR-MECH | Корзина'
+    }
+  },
+  computed: {
+    ...mapGetters({
+      cart: 'cart/getCart'
+    }),
+    totalPrice () {
+      const total = this.cart.reduce((sum, item) => {
+        sum += item.quantity * item.product.price
+        return sum
+      }, 0)
+      return total.toLocaleString('ru')
+    }
+  }
 }
 </script>
 <style lang="scss" scoped>
@@ -154,17 +93,6 @@ export default {
   padding-bottom: 70px;
   h1 {
     text-align: left;
-  }
-  &-default {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    &__title {
-      margin: 20px 0 40px;
-      font-weight: 600;
-      font-size: 24px;
-      line-height: 29px;
-    }
   }
   &__flex {
     display: flex;
@@ -201,110 +129,6 @@ export default {
       text-align: center;
     }
   }
-  &-box {
-    flex-grow: 1;
-    margin-right: 40px;
-    margin-bottom: 30px;
-  }
-  &-item {
-    padding: 40px;
-    border: 1px solid #E8E9EB;
-    border-radius: 5px;
-    display: flex;
-    align-items: center;
-    position: relative;
-    margin-bottom: 20px;
-    &-image {
-      width: 310px;
-      height: 200px;
-      &__img {
-        object-fit: cover;
-        max-width: 100%;
-        max-height: 100%;
-      }
-    }
-    &__inner {
-      flex-grow: 1;
-      margin: 0 30px;
-    }
-    &__category {
-      color: $orange;
-      text-transform: uppercase;
-      font-weight: bold;
-      font-size: 15px;
-      line-height: 19px;
-      letter-spacing: 0.05em;
-      margin-bottom: 10px;
-    }
-    &__name {
-      font-weight: 600;
-      font-size: 26px;
-      line-height: 31px;
-    }
-    &-count {
-      margin-top: 30px;
-      .count {
-        display: flex;
-        height: 40px;
-        &__btn {
-          height: 100%;
-          width: 40px;
-          background: #F9FBFF;
-          border: 1px solid #E9EEF8;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          font-weight: 600;
-          font-size: 18px;
-          line-height: 22px;
-          cursor: pointer;
-        }
-        &-minus {
-          border-radius: 5px 0 0 5px;
-        }
-        &-plus {
-          border-radius: 0 5px 5px 0;
-        }
-        &-value {
-          height: 100%;
-          width: 40px;
-          border: 1px solid $border;
-          text-align: center;
-          font-weight: 500;
-          font-size: 18px;
-          line-height: 22px;
-        }
-      }
-    }
-    &-price {
-      display: flex;
-      align-items: center;
-      margin-top: 30px;
-      &__head {
-        margin-right: 15px;
-        font-weight: 600;
-        font-size: 22px;
-        line-height: 26px;
-      }
-      &__content {
-        display: block;
-        font-weight: 600;
-        font-size: 30px;
-        line-height: 36px;
-      }
-    }
-    &__delete {
-      display: block;
-      font-weight: 500;
-      font-size: 16px;
-      line-height: 19px;
-      color: $lightGrey;
-      cursor: pointer;
-      position: absolute;
-      top: 40px;
-      right: 40px;
-    }
-  }
 }
 
 .cart-promocode {
@@ -332,9 +156,6 @@ export default {
 
 @media screen and (max-width: 1440px) {
   .cart {
-    &-box {
-      margin-right: 0;
-    }
     &-result {
       position: fixed;
       z-index: 4;
@@ -358,43 +179,7 @@ export default {
     &._mobile {
       display: block;
       max-width: 100%;
-    }
-  }
-}
-
-@media screen and (max-width: 870px) {
-  .cart {
-    &-item {
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
-      padding: 60px 30px 30px;
-      &__inner {
-        margin: 0;
-      }
-      &-image {
-        max-width: 100%;
-        height: auto;
-        &__img {
-          display: block;
-        }
-      }
-      &__category {
-        margin: 20px 0 10px;
-      }
-      &-count {
-        margin-top: 30px;
-        .count {
-          justify-content: center;
-        }
-      }
-      &-price {
-        justify-content: center;
-      }
-      &__delete {
-        top: 20px;
-        right: 20px;
-      }
+      margin: 0 auto;
     }
   }
 }
@@ -404,11 +189,6 @@ export default {
     padding-top: 30px;
     &__flex {
       margin-top: 30px;
-    }
-    &-item {
-      &-image {
-        width: 100%;
-      }
     }
     &-promocode {
       &._mobile {
