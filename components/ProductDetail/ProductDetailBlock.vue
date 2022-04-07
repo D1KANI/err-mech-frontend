@@ -10,12 +10,12 @@
         <div class="item__right">
           <div class="item__info">
             <div class="item__category">
-              Клавиатуры
+              {{ product.category }}
             </div>
             <div class="item__name">
               <span>{{ product.company }}</span> <span>{{ product.name }}</span>
             </div>
-            <client-only>
+            <client-only v-if="product.category === 'Клавиатуры'">
               <ProductDetailSwitchesList
                 :switches="switches"
                 :active="selectedSwitch"
@@ -115,7 +115,7 @@ export default {
       ],
       product: {
         id: 2,
-        category: 'Клавиатура',
+        category: 'Клавиатуры',
         company: 'Varmilo',
         name: 'VA87M Vintage Days',
         desc_short: 'Короткое описание',
@@ -196,10 +196,12 @@ export default {
     }
   },
   mounted () {
-    const notEmptySwitch = this.switches.find((item) => {
-      return item.count !== 0
-    })
-    this.selectedSwitch = notEmptySwitch.name
+    if (this.product.category === 'Клавиатуры') {
+      const notEmptySwitch = this.switches.find((item) => {
+        return item.count !== 0
+      })
+      this.selectedSwitch = notEmptySwitch.name
+    }
   },
   methods: {
     setActiveSwitch (payload) {
