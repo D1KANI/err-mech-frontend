@@ -8,7 +8,7 @@
         {{ item.product.category }}
       </p>
       <p class="cart-item__name">
-        {{ item.product.company }} {{ item.product.name }}
+        {{ item.product.company }} {{ item.product.name }} <span :class="classForSwitch">{{ item.product.selectedSwitch }}</span>
       </p>
       <div class="cart-item-count">
         <div class="count">
@@ -54,11 +54,14 @@ export default {
   computed: {
     priceAsString () {
       return this.item.product.price.toLocaleString('ru')
+    },
+    classForSwitch () {
+      return `sw${this.item.product.selectedSwitch.replace(/\s/g, '')}`
     }
   },
   methods: {
     ...mapMutations({
-      increment: 'cart/incrementQuantity',
+      increment: 'cart/addToCart',
       decrement: 'cart/decrementQuantity',
       removeFromCart: 'cart/removeFromCart'
     })

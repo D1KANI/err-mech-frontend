@@ -4,11 +4,12 @@ export default () => ({
       product: {
         id: 1,
         category: 'Клавиатура',
-        name: 'Shine 7 Blackout',
         company: 'Ducky',
-        switches: ['Brown', 'Blue', 'Red', 'Clear', 'Silent Red', 'Speed Silver', 'Black'],
+        name: 'Shine 7 Blackout',
+        desc_short: 'Короткое описание',
+        desc_full: 'Полное описание',
         selectedSwitch: 'Clear',
-        price: 9999,
+        price: 11390,
         image: require('@/assets/images/product/1.png')
       },
       quantity: 1
