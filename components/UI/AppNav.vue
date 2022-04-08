@@ -1,16 +1,16 @@
 <template>
   <nav class="nav">
-    <nuxt-link to="/articles" class="nav__link">
-      Статьи
-    </nuxt-link>
     <nuxt-link to="/categories" class="nav__link">
       Категории
+    </nuxt-link>
+    <nuxt-link to="/articles" class="nav__link">
+      Статьи
     </nuxt-link>
   </nav>
 </template>
 <script>
 export default {
-  name: 'Nav'
+  name: 'AppNav'
 }
 </script>
 <style lang="scss" scoped>

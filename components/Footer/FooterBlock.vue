@@ -2,8 +2,8 @@
   <footer class="footer">
     <div class="container">
       <div class="footer__links">
-        <Logo class="footer__logo" />
-        <Nav />
+        <AppLogo class="footer__logo" />
+        <AppNav />
       </div>
       <div class="footer__flex">
         <div class="footer__box">

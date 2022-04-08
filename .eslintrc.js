@@ -19,6 +19,6 @@ module.exports = {
     "vue/multi-word-component-names": ["error", {
       "ignores": ["default", "home"]
     }],
-    'vue/multi-word-component-names': 'off',
+    // 'vue/multi-word-component-names': 'off',
   },
 }

@@ -137,6 +137,9 @@ h3 {
     line-height: 19px;
     margin-bottom: 10px;
   }
+  &._error {
+    border-color: $error;
+  }
 }
 
 .btn {

@@ -1,12 +1,12 @@
 <template>
   <nuxt-link :to="{name: 'index'}" class="cybr-btn">
-    err.mech<span aria-hidden></span>
+    err.mech<span aria-hidden />
     <span aria-hidden class="cybr-btn__glitch">err.mech</span>
   </nuxt-link>
 </template>
 <script>
 export default {
-  name: 'Logo'
+  name: 'AppLogo'
 }
 </script>
 <style lang="scss" scoped>
