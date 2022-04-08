@@ -29,7 +29,7 @@ export default {
   },
   methods: {
     setActiveSwitch () {
-      if (this.item.active) {
+      if (this.item.active || this.item.count === 0) {
         return
       }
       this.$emit('set-active-switch', this.item.name)
