@@ -6,41 +6,39 @@
         <div class="profile-data">
           <h3>Ваши данные</h3>
           <div class="profile-data__flex">
-            <div class="input-wrapper">
-              <div class="input-label">
-                Логин
-              </div>
-              <input type="text" class="input profile__input" :placeholder="userData.login || 'Ваш логин'">
-            </div>
-            <div class="input-wrapper">
-              <div class="input-label">
-                Телефон
-              </div>
-              <input type="text" class="input profile__input" :placeholder="userData.tel || 'Ваш телефон'">
-            </div>
-            <div class="input-wrapper">
-              <div class="input-label">
-                Имя
-              </div>
-              <input type="text" class="input profile__input" :placeholder="userData.name || 'Ваше имя'">
-            </div>
-            <div class="input-wrapper">
-              <div class="input-label">
-                Фамилия
-              </div>
-              <input type="text" class="input profile__input" :placeholder="userData.surname || 'Ваша фамилия'">
-            </div>
+            <AppInput
+              v-for="(input, index) in userData.inputs"
+              :key="index"
+              v-model="input.value"
+              :is-required="input.isRequired"
+              :is-error="input.isError"
+              :is-readonly="input.isReadonly"
+              :label="input.label"
+              :placeholder="input.placeholder"
+              :input-type="input.inputType"
+            />
             <div class="input-wrapper _textarea">
               <div class="input-label">
                 Адрес
               </div>
               <textarea
+                v-model="userData.address.value"
                 rows="2"
                 class="input profile__textarea"
-                :placeholder="userData.address || 'Ваш адрес доставки'"
-                resize=""
+                :placeholder="userData.address.placeholder || 'Ваш адрес доставки'"
               />
             </div>
+            <ul
+              v-if="errors.length"
+              class="errorlist"
+            >
+              <li
+                v-for="(error, index) in errors"
+                :key="index"
+              >
+                {{ error }}
+              </li>
+            </ul>
             <div class="btn profile__btn">
               Сохранить новые данные
             </div>
@@ -99,12 +97,40 @@ export default {
         }
       ],
       userData: {
-        login: 'DIKANI',
-        name: 'Daniil',
-        surname: 'Rybakov',
-        tel: '+7 (999) 999 99 99',
-        address: 'Some address'
-      }
+        address: {
+          value: '',
+          placeholder: 'Some address'
+        },
+        inputs: {
+          login: {
+            value: '',
+            placeholder: 'DIKANI',
+            label: 'Логин',
+            isError: false,
+            isReadonly: true
+          },
+          name: {
+            value: '',
+            placeholder: 'Daniil',
+            label: 'Имя',
+            isError: false
+          },
+          surname: {
+            value: '',
+            placeholder: 'Rybakov',
+            label: 'Фамилия',
+            isError: false
+          },
+          tel: {
+            value: '',
+            placeholder: '+7 (999) 999 99 99',
+            label: 'Телефон',
+            isError: false,
+            inputType: 'tel'
+          }
+        }
+      },
+      errors: []
     }
   },
   head () {
