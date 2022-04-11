@@ -9,7 +9,7 @@
 </template>
 <script>
 export default {
-  name: 'ProductDetailSwitchesItem',
+  name: 'SwitchItem',
   props: {
     item: {
       type: Object,

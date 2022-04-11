@@ -33,13 +33,14 @@
                   Проверить промокод
                 </button>
               </form>
-              <div
+              <nuxt-link
+                to="/checkout"
                 class="btn cart-result__btn _no-anim"
                 :class="{'_disabled' : cart.length === 0}"
                 :disabled="cart.length === 0"
               >
                 Перейти к оформлению
-              </div>
+              </nuxt-link>
             </div>
           </div>
         </div>

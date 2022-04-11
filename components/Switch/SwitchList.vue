@@ -4,7 +4,7 @@
       Выберите тип переключателей
     </div>
     <div class="item-switches__flex">
-      <ProductDetailSwitchesItem
+      <SwitchItem
         v-for="(item, index) in switchesWithActive"
         :key="index"
         :item="item"
@@ -18,7 +18,7 @@
 </template>
 <script>
 export default {
-  name: 'ProductDetailSwitchesList',
+  name: 'SwitchList',
   props: {
     switches: {
       type: Array,

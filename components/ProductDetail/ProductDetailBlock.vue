@@ -16,7 +16,7 @@
               <span>{{ product.company }}</span> <span>{{ product.name }}</span>
             </div>
             <client-only v-if="product.category === 'Клавиатуры'">
-              <ProductDetailSwitchesList
+              <SwitchList
                 :switches="switches"
                 :active="selectedSwitch"
                 @set-active-switch="setActiveSwitch"
