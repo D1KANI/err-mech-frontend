@@ -75,7 +75,7 @@ export default {
 </script>
 <style lang="scss" scoped>
 .checkout {
-  padding: 50px 0 70px;
+  padding: 20px 0 70px;
   h1 {
     text-align: left;
   }
