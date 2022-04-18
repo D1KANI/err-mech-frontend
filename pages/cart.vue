@@ -34,10 +34,9 @@
                 </button>
               </form>
               <nuxt-link
-                to="/checkout"
+                :to="cart.length === 0 ? '/cart' : '/checkout'"
                 class="btn cart-result__btn _no-anim"
                 :class="{'_disabled' : cart.length === 0}"
-                :disabled="cart.length === 0"
               >
                 Перейти к оформлению
               </nuxt-link>

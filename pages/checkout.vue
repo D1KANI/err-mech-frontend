@@ -6,6 +6,7 @@
         <CheckoutCartBlock />
         <CheckoutUser
           :user-data="userData"
+          @textarea-input="changeTextareaValue"
         />
         <div class="checkout-payment">
           <h2>Способ оплаты</h2>
@@ -33,10 +34,22 @@ export default {
     return {
       userData: {
         inputs: {
-          login: {
+          name: {
             value: '',
-            label: 'Логин',
-            placeholder: 'Ваш Логин',
+            label: 'Имя',
+            placeholder: 'Ваше Имя',
+            isError: false
+          },
+          surname: {
+            value: '',
+            label: 'Фамилия',
+            placeholder: 'Ваша Фамилия',
+            isError: false
+          },
+          midname: {
+            value: '',
+            label: 'Отчество',
+            placeholder: 'Ваше отчество',
             isError: false
           },
           tel: {
@@ -48,27 +61,32 @@ export default {
           },
           zip: {
             value: '',
-            label: 'Почтовый индекс',
-            placeholder: 'Ваш индекс',
+            label: 'Почтовый Индекс',
+            placeholder: 'Ваш Индекс',
             isError: false,
             inputType: 'number'
           },
           email: {
             value: '',
-            label: 'E-mail',
-            placeholder: 'Ваша почта',
+            label: 'E-Mail',
+            placeholder: 'Ваша Почта',
             isError: false,
             inputType: 'email'
           }
         },
         address: {
           value: '',
-          placeholder: 'Ваш адрес',
+          placeholder: 'Ваш Адрес',
           label: 'Адрес',
           isRequired: true,
           isError: false
         }
       }
+    }
+  },
+  methods: {
+    changeTextareaValue (payload) {
+      this.userData.address.value = payload
     }
   }
 }

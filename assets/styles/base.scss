@@ -145,6 +145,8 @@ h3 {
 .btn {
   display: block;
   width: max-content;
+  max-width: 100%;
+  text-align: center;
   background-color: $green;
   border: none;
   color: #fff;
@@ -164,11 +166,11 @@ h3 {
     content: "";
     display: block;
     width: 15px;
-    height: 100px;
+    height: 200%;
     background-color: rgba(255, 255, 255, 0.4);
     position: absolute;
     top: 50%;
-    left: -50px;
+    left: -100px;
     transform: translateY(-50%) rotate(45deg);
     transition: left 0ms steps(0, emd);
   }

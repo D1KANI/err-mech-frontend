@@ -17,12 +17,16 @@
           {{ userData.address.label }}
         </div>
         <textarea
-          v-model="userData.address.value"
+          :value="userData.address.value"
           rows="2"
           class="input checkout__textarea"
           :placeholder="userData.address.placeholder"
           :required="userData.address.isRequired"
+          @input="$emit('textarea-input', $event.target.value)"
         />
+      </div>
+      <div class="btn checkout-person__btn">
+        Использовать данные профиля
       </div>
     </div>
   </div>
@@ -34,10 +38,6 @@ export default {
     userData: {
       type: Object,
       required: true
-    }
-  },
-  data () {
-    return {
     }
   }
 }
@@ -62,6 +62,9 @@ export default {
           margin-bottom: 0;
         }
       }
+    }
+    &__btn {
+      margin-top: 24px;
     }
   }
 }
