@@ -36,6 +36,9 @@ export default {
 @media screen and (max-width: 1080px) {
   .nav {
     display: none;
+    &__link {
+      margin: 0 20px;
+    }
   }
 }
 </style>

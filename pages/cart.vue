@@ -5,7 +5,7 @@
       <div class="cart-wrapper">
         <div class="cart__flex">
           <CartProductList :cart="cart" />
-          <div class="cart-result">
+          <div v-if="cart.length > 0" class="cart-result">
             <div class="cart-result__box">
               <div class="cart-result-head">
                 <p class="cart-result-head__title">
@@ -15,7 +15,7 @@
                   <span>{{ totalPrice }}</span> ₽
                 </p>
               </div>
-              <form v-if="cart.length > 0" class="cart-result-promocode cart-promocode">
+              <form class="cart-result-promocode cart-promocode">
                 <p class="cart-promocode__label">
                   Подарочный сертификат
                 </p>
@@ -34,9 +34,8 @@
                 </button>
               </form>
               <nuxt-link
-                :to="cart.length === 0 ? '/cart' : '/checkout'"
+                to="/checkout"
                 class="btn cart-result__btn _no-anim"
-                :class="{'_disabled' : cart.length === 0}"
               >
                 Перейти к оформлению
               </nuxt-link>

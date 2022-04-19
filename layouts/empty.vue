@@ -14,12 +14,13 @@
 </template>
 <script>
 export default {
-  name: 'Empty'
+  name: 'EmptyLayout'
 }
 </script>
 <style lang="scss" scoped>
 .header {
   padding: 20px 0;
+  border-bottom: 1px solid #e7e7e7;
   &__inner {
     display: flex;
     justify-content: center;
