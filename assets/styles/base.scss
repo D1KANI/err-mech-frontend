@@ -137,11 +137,16 @@ h3 {
     line-height: 19px;
     margin-bottom: 10px;
   }
+  &._error {
+    border-color: $error;
+  }
 }
 
 .btn {
   display: block;
   width: max-content;
+  max-width: 100%;
+  text-align: center;
   background-color: $green;
   border: none;
   color: #fff;
@@ -156,15 +161,16 @@ h3 {
   position: relative;
   overflow: hidden;
   user-select: none;
+  transition: background-color 175ms ease-in-out;
   &:before {
     content: "";
     display: block;
     width: 15px;
-    height: 100px;
+    height: 200%;
     background-color: rgba(255, 255, 255, 0.4);
     position: absolute;
     top: 50%;
-    left: -50px;
+    left: -100px;
     transform: translateY(-50%) rotate(45deg);
     transition: left 0ms steps(0, emd);
   }
@@ -173,6 +179,15 @@ h3 {
       left: 140%;
       transition: left 450ms ease-out;
     }
+  }
+  &._no-anim {
+    &::before {
+      display: none;
+    }
+  }
+  &._disabled {
+    cursor: default;
+    background-color: $grey;
   }
 }
 
@@ -279,5 +294,24 @@ h3 {
   &.active {
     background-color: $swSpeedSilver;
     border-color: $swSpeedSilver;
+  }
+}
+
+.errorlist {
+  list-style-type: none;
+  margin: 20px 0;
+  width: 100%;
+  padding: 15px 20px;
+  background: rgba(240, 81, 81, 0.2);
+  border-radius: 5px;
+  li {
+    margin-bottom: 4px;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 19px;
+    color: $error;
+    &:last-child {
+      margin-bottom: 0;
+    }
   }
 }

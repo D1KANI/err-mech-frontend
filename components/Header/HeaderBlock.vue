@@ -11,21 +11,21 @@
           <span />
           <span />
         </div>
-        <Logo />
-        <HeaderNav />
+        <AppLogo class="header__logo" />
+        <AppNav />
         <div class="header__buttons">
           <a href="#" class="search-btn">
             <IconSearch />
             <p>Поиск</p>
           </a>
-          <a href="#" class="profile-btn">
+          <nuxt-link to="/profile" class="profile-btn">
             <IconProfile />
             <p>Профиль</p>
-          </a>
-          <a href="#" class="cart-btn">
+          </nuxt-link>
+          <nuxt-link to="/cart" class="cart-btn">
             <IconCart />
             <p>Корзина</p>
-          </a>
+          </nuxt-link>
         </div>
       </div>
     </div>

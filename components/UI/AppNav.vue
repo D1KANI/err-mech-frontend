@@ -1,16 +1,16 @@
 <template>
   <nav class="nav">
-    <a href="#" class="nav__link">Клавиатуры</a>
-    <a href="#" class="nav__link">Переключатели</a>
-    <a href="#" class="nav__link">Кейкапы</a>
-    <a href="#" class="nav__link">Аксессуары</a>
-    <a href="#" class="nav__link">Новости</a>
-    <a href="/categories.html" class="nav__link">Категории</a>
+    <nuxt-link to="/categories" class="nav__link">
+      Категории
+    </nuxt-link>
+    <nuxt-link to="/articles" class="nav__link">
+      Статьи
+    </nuxt-link>
   </nav>
 </template>
 <script>
 export default {
-  name: 'HeaderNav'
+  name: 'AppNav'
 }
 </script>
 <style lang="scss" scoped>
@@ -36,6 +36,9 @@ export default {
 @media screen and (max-width: 1080px) {
   .nav {
     display: none;
+    &__link {
+      margin: 0 20px;
+    }
   }
 }
 </style>

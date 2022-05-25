@@ -68,7 +68,7 @@ export default {
   }
 }
 </script>
-<style lang="scss">
+<style lang="scss" scoped>
 .slider {
   &-item {
     padding: 248px 150px 248px 250px;
@@ -167,14 +167,6 @@ export default {
     &-item {
       padding-left: 200px;
     }
-    .slick {
-      &-prev {
-        left: 50px;
-      }
-      &-next {
-        right: 50px;
-      }
-    }
   }
 }
 
@@ -221,10 +213,84 @@ export default {
         line-height: 24px;
       }
     }
-    .slick {
-      &-dots {
-        bottom: 20px;
+  }
+}
+</style>
+<style lang="scss">
+.slick {
+  &-dots {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex !important;
+    list-style-type: none;
+    li {
+      margin: 0 6px;
+      button {
+        display: block;
+        font-size: 0;
+        line-height: 0;
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        background-color: #adadad;
+        border: none;
+        transition: background-color 250ms ease-out;
+        cursor: pointer;
       }
+      &.slick-active {
+        button {
+          background-color: #fff;
+        }
+      }
+    }
+  }
+  &-arrow {
+    position: absolute;
+    z-index: 1;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 0;
+    line-height: 0;
+    cursor: pointer;
+    background-color: transparent;
+    border: none;
+    padding: 10px 0;
+    &:before {
+      content: "";
+      display: block;
+      width: 50px;
+      height: 18px;
+      background: url(assets/images/icons/arrow.svg) no-repeat center center / contain;
+    }
+  }
+  &-prev {
+    left: 100px;
+  }
+  &-next {
+    right: 100px;
+    &:before {
+      transform: rotate(180deg);
+    }
+  }
+}
+
+@media screen and (max-width: 1820px) {
+  .slick {
+    &-prev {
+      left: 50px;
+    }
+    &-next {
+      right: 50px;
+    }
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .slick {
+    &-dots {
+      bottom: 20px;
     }
   }
 }
